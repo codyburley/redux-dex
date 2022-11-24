@@ -1,3 +1,6 @@
+@use './styles/partials/variables' as *;
+@use './styles/partials/fonts' as *;
+
 *,
 *::before,
 *::after {
@@ -11,7 +14,8 @@ html {
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $color-background;
 }
 
 a {

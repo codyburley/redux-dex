@@ -1,0 +1,10 @@
+@use '../../styles/partials/variables' as *;
+
+.header {
+  background-color: $color-header;
+  padding: 1rem;
+
+  &__title {
+    margin: 0;
+  }
+}
