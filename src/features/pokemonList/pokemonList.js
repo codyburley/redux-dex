@@ -1,18 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import Pokedex from 'pokedex-promise-v2';
+const P = new Pokedex();
 
 const url = 'https://pokeapi.co/api/v2';
 
 const initialState = {
   pokemon: [],
-  seen: 0,
-  caught: 0,
+  seen: false,
+  caught: false,
   isLoading: true
 }
 
 export const getPokemonList = createAsyncThunk('pokemonList/getPokemonList', () => {
-  return fetch(`${url}/pokemon?limit=151`)
-    .then(response => response.json())
-    .catch(error => console.log(error))
+  // return fetch(`${url}/pokemon?limit=151`)
+  //   .then(response => response.json())
+  //   .catch(error => console.log(error))
+  return P.getPokedexByName("kanto")
+    .then((response) => {
+      console.log(response);
+      return response.pokemon_entries;
+    })
+    .catch((error) => {
+      console.log('There was an ERROR: ', error);
+    });
 })
 
 const pokemonListSlice = createSlice({
