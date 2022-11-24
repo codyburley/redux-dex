@@ -6,7 +6,6 @@ const url = 'https://pokeapi.co/api/v2';
 
 const initialState = {
   pokemon: [],
-  seen: false,
   caught: false,
   isLoading: true
 }

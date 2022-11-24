@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPokemonList } from './features/pokemonList/pokemonList';
 import { useEffect } from 'react';
 import Home from './pages/Home/Home';
+import Header from './components/Header/Header';
 
 const App = () => {
   const { pokemon, isLoading } = useSelector(state => state.pokemonList)
@@ -24,6 +25,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
       <Home />
     </div>
   );
