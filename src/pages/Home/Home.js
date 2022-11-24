@@ -4,9 +4,9 @@ import './Home.scss'
 
 const Home = () => {
   return (
-    <div>
+    <main className='home'>
       <Pokedex />
-    </div>
+    </main>
   )
 }
 

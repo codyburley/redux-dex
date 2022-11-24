@@ -8,11 +8,11 @@ const Pokedex = () => {
   const { pokemon } = useSelector(state => state.pokemonList)
 
   return (
-    <div>
+    <section className='pokedex'>
       {pokemon.map((poke, i) => {
         return <PokedexEntry key={i} {...poke} />
       })}
-    </div>
+    </section>
   )
 }
 
