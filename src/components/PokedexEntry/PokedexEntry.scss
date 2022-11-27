@@ -19,6 +19,15 @@
     padding: 0.2rem 0;
   }
 
+  &__caught-button {
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
   &__caught {
     width: 1.4rem;
     margin: 0 0.3rem;

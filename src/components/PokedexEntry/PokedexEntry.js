@@ -2,18 +2,32 @@ import React from 'react'
 import './PokedexEntry.scss'
 import pokeballBackground from '../../assets/images/pokeball-background.png';
 import caughtIcon from '../../assets/images/pokeball.png';
+import { caughtPoke, uncaughtPoke } from '../../features/pokemonList/pokemonListSlice';
+import { useDispatch } from 'react-redux';
 
 const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
+  const dispatch = useDispatch();
   // const capitalName = pokemon_species.name.charAt(0).toUpperCase() + pokemon_species.name.slice(1);
   const entryNumber = String(entry_number).padStart(3, 0);
+
+  const handleClick = () => {
+    console.log(entry_number);
+    if (caught) {
+      dispatch(uncaughtPoke({ entry_number }))
+    } else {
+      dispatch(caughtPoke({ entry_number }))
+    }
+  }
 
   return (
     <article className='entry'>
       <div className='entry__container'>
-        <img
-          className={`entry__caught ${caught ? "" : " entry__caught--grey"}`}
-          src={caughtIcon}
-          alt="Pokemon caught" />
+        <button className='entry__caught-button' onClick={handleClick}>
+          <img
+            className={`entry__caught ${caught ? "" : " entry__caught--grey"}`}
+            src={caughtIcon}
+            alt="Pokemon caught" />
+        </button>
         No.
         {entryNumber}
       </div>

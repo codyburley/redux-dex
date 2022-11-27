@@ -21,8 +21,6 @@ const App = () => {
     )
   }
 
-  console.log(pokemon)
-
   return (
     <div className="App">
       <Header />

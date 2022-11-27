@@ -4,7 +4,6 @@ const P = new Pokedex();
 
 const initialState = {
   pokemon: [],
-  caught: false,
   isLoading: true
 }
 
@@ -14,7 +13,7 @@ export const getPokemonList = createAsyncThunk('pokemonList/getPokemonList', () 
   //   .catch(error => console.log(error))
   return P.getPokedexByName("kanto")
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.pokemon_entries;
     })
     .catch((error) => {
@@ -25,7 +24,16 @@ export const getPokemonList = createAsyncThunk('pokemonList/getPokemonList', () 
 const pokemonListSlice = createSlice({
   name: 'pokemonList',
   initialState,
-  reducers: {},
+  reducers: {
+    caughtPoke: (state, { payload }) => {
+      const pokemonCaught = state.pokemon.find(poke => poke.entry_number === payload.entry_number);
+      pokemonCaught.caught = true;
+    },
+    uncaughtPoke: (state, { payload }) => {
+      const pokemonCaught = state.pokemonList.find(poke => poke.entry_number === payload.entry_number)
+      pokemonCaught.caught = false;
+    }
+  },
   extraReducers: {
     [getPokemonList.pending]: (state) => {
       state.isLoading = true;
@@ -33,6 +41,9 @@ const pokemonListSlice = createSlice({
     [getPokemonList.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.pokemon = action.payload;
+      state.pokemon.forEach(poke => {
+        poke.caught = false;
+      })
     },
     [getPokemonList.rejected]: (state) => {
       state.isLoading = false;
@@ -40,6 +51,6 @@ const pokemonListSlice = createSlice({
   }
 })
 
-export const { } = pokemonListSlice.actions;
+export const { caughtPoke, uncaughtPoke } = pokemonListSlice.actions;
 
 export default pokemonListSlice.reducer;
