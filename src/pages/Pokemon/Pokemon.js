@@ -2,7 +2,7 @@ import React from 'react';
 import './Pokemon.scss';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Hero from '../../components/Hero/Hero';
 import Description from '../../components/Description/Description';
 import Abilities from '../../components/Abilities/Abilities';
@@ -36,11 +36,10 @@ const Pokemon = () => {
   }
 
   return (
-    <main>
+    <main className='pokemon'>
       <Hero
         sprites={selectedPokemon.sprites}
         name={selectedPokemon.name}
-        id={selectedPokemon.id}
         caught={selectedPokemon.caught}
         entry_number={selectedPokemon.entry_number}
       />

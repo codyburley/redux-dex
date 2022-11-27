@@ -3,6 +3,21 @@
 @use '../../styles/partials/fonts' as *;
 
 .hero {
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+    background-color: $color-dark-text;
+    justify-content: space-between;
+    padding: 0.4rem 0.4rem;
+  }
+
+  &__caught-wrapper {
+    display: flex;
+    align-items: center;
+    width: 11.4rem;
+  }
+
   &__caught-button {
     padding: 0;
     background: transparent;
@@ -15,10 +30,63 @@
 
   &__caught {
     width: 1.4rem;
-    margin: 0 0.3rem;
+    margin: 0 0.5rem;
 
     &--grey {
       filter: grayscale(100%);
     }
+  }
+
+  &__entry {
+    @include font-entry-number;
+  }
+
+  &__name {
+    font-size: 2rem;
+    color: white;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  &__gender-button {
+    padding: 0.8rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    &--male {
+      background-color: #3775d9;
+    }
+
+    &--female {
+      background-color: #ff4b6e;
+    }
+
+    &--inactive {
+      transform: scale(0.7);
+    }
+  }
+
+  &__gender {
+    width: 1.4rem;
+    filter: grayscale(1) invert(1);
+  }
+
+  &__shiny-button {
+    padding: 0.8rem;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__shiny {
+    width: 1.4rem;
+    filter: opacity(0.2);
   }
 }

@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
   const dispatch = useDispatch();
-  // const capitalName = pokemon_species.name.charAt(0).toUpperCase() + pokemon_species.name.slice(1);
   const entryNumber = String(entry_number).padStart(3, 0);
 
   const handleClick = () => {
