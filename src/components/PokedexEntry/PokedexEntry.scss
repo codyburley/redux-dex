@@ -13,6 +13,19 @@
     width: 100%;
     color: $color-light-text;
     border-radius: 3px 3px 0 0;
+    @include font-entry-number;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0;
+  }
+
+  &__caught {
+    width: 1.4rem;
+    margin: 0 0.3rem;
+
+    &--grey {
+      filter: grayscale(100%);
+    }
   }
 
   &__image-container {
@@ -27,7 +40,8 @@
     position: absolute;
     width: 100%;
     z-index: 3;
-    opacity: 0.02;
+    opacity: 0.25;
+    filter: brightness(350%);
   }
 
   &__image {

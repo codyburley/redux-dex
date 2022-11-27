@@ -1,6 +1,6 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemonList } from './features/pokemonList/pokemonList';
+import { getPokemonList } from './features/pokemonList/pokemonListSlice';
 import { useEffect } from 'react';
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';

@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import Pokedex from 'pokedex-promise-v2';
 const P = new Pokedex();
 
-const url = 'https://pokeapi.co/api/v2';
-
 const initialState = {
   pokemon: [],
   caught: false,
