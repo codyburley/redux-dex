@@ -8,24 +8,9 @@ const initialState = {
 }
 
 export const getPokemonList = createAsyncThunk('pokemonList/getPokemonList', () => {
-  // return fetch(`${url}/pokemon?limit=151`)
-  //   .then(response => response.json())
-  //   .catch(error => console.log(error))
   return P.getPokedexByName("kanto")
     .then((response) => {
-      // console.log(response);
       return response.pokemon_entries;
-    })
-    .catch((error) => {
-      console.log('There was an ERROR: ', error);
-    });
-})
-
-export const getPokemonDetails = createAsyncThunk('pokemonList/getPokemonDetails', (entry) => {
-  return P.getPokemonByName(entry)
-    .then((response) => {
-      console.log(response);
-      return response;
     })
     .catch((error) => {
       console.log('There was an ERROR: ', error);
@@ -41,7 +26,7 @@ const pokemonListSlice = createSlice({
       pokemonCaught.caught = true;
     },
     uncaughtPoke: (state, { payload }) => {
-      const pokemonCaught = state.pokemonList.find(poke => poke.entry_number === payload.entry_number)
+      const pokemonCaught = state.pokemon.find(poke => poke.entry_number === payload.entry_number)
       pokemonCaught.caught = false;
     }
   },
@@ -57,16 +42,6 @@ const pokemonListSlice = createSlice({
       })
     },
     [getPokemonList.rejected]: (state) => {
-      state.isLoading = false;
-    },
-    [getPokemonDetails.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getPokemonDetails.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.pokemon[action.payload.id].sprites = action.payload.sprites;
-    },
-    [getPokemonDetails.rejected]: (state) => {
       state.isLoading = false;
     }
   }

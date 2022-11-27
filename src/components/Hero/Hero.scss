@@ -1,3 +1,24 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/fonts' as *;
+
+.hero {
+  &__caught-button {
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__caught {
+    width: 1.4rem;
+    margin: 0 0.3rem;
+
+    &--grey {
+      filter: grayscale(100%);
+    }
+  }
+}

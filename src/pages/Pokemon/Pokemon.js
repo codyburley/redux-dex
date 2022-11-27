@@ -20,17 +20,20 @@ const Pokemon = () => {
     P.getPokemonByName(currentPoke.entry_number)
       .then((response) => {
         setSelectedPokemon(response);
+        setSelectedPokemon(state => ({
+          ...state,
+          caught: currentPoke.caught,
+          entry_number: currentPoke.entry_number
+        }))
       })
       .catch((error) => {
         console.log('There was an ERROR: ', error);
       });
-  }, [])
+  }, [pokeEntryNumber.entry_number, pokemon])
 
   if (!selectedPokemon) {
     return <h1>Loading...</h1>
   }
-
-  console.log(selectedPokemon);
 
   return (
     <main>
@@ -38,6 +41,8 @@ const Pokemon = () => {
         sprites={selectedPokemon.sprites}
         name={selectedPokemon.name}
         id={selectedPokemon.id}
+        caught={selectedPokemon.caught}
+        entry_number={selectedPokemon.entry_number}
       />
       <Description />
       <Abilities />

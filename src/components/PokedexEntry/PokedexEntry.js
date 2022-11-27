@@ -22,17 +22,17 @@ const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
 
   return (
     <article className='entry'>
+      <div className='entry__container'>
+        <button className='entry__caught-button' onClick={handleClick}>
+          <img
+            className={`entry__caught ${caught ? "" : " entry__caught--grey"}`}
+            src={caughtIcon}
+            alt="Pokemon caught" />
+        </button>
+        No.
+        {entryNumber}
+      </div>
       <Link to={`/pokemon/${entry_number}`}>
-        <div className='entry__container'>
-          <button className='entry__caught-button' onClick={handleClick}>
-            <img
-              className={`entry__caught ${caught ? "" : " entry__caught--grey"}`}
-              src={caughtIcon}
-              alt="Pokemon caught" />
-          </button>
-          No.
-          {entryNumber}
-        </div>
         <div className='entry__image-container'>
           <img
             className='entry__image-background'
