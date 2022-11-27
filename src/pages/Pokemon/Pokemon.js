@@ -14,14 +14,16 @@ const Pokemon = () => {
     setSelectedPoke(currentPoke);
   }, [])
 
-  console.log(selectedPoke)
-
   if (!selectedPoke) {
     return <h1>Loading...</h1>
   }
 
+  console.log(selectedPoke)
+
   return (
-    <div>Pokemon</div>
+    <main>
+
+    </main>
   )
 }
 

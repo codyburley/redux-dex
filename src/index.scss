@@ -13,9 +13,12 @@ html {
 }
 
 body {
-  margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: $color-background;
+  background: $color-background;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {
