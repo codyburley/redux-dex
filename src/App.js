@@ -2,8 +2,9 @@ import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPokemonList } from './features/pokemonList/pokemonListSlice';
 import { useEffect } from 'react';
-import Home from './pages/Home/Home';
-import Header from './components/Header/Header';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home/Home';
+import PokemonPage from './pages/Pokemon/Pokemon';
 
 const App = () => {
   const { pokemon, isLoading } = useSelector(state => state.pokemonList)
@@ -23,8 +24,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-      <Home />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/pokemon/:entry_number' element={<PokemonPage />} />
+      </Routes>
     </div>
   );
 }
