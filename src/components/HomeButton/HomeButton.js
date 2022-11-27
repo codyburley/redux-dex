@@ -5,9 +5,11 @@ import close from '../../assets/images/close.png';
 
 const HomeButton = () => {
   return (
-    <Link className='home-button' to='/'>
-      <img className='home-button__icon' src={close} alt="Close" />
-    </Link>
+    <div className='home-button__border'>
+      <Link className='home-button' to='/'>
+        <img className='home-button__icon' src={close} alt="Close" />
+      </Link>
+    </div>
   )
 }
 
