@@ -16,7 +16,7 @@ const Pokemon = () => {
   const pokemon = useSelector(state => state.pokemonList.pokemon);
 
   useEffect(() => {
-    const currentPoke = pokemon.find(poke => poke.entry_number == pokeEntryNumber.entry_number);
+    const currentPoke = pokemon.find(poke => poke.entry_number === Number(pokeEntryNumber.entry_number));
     P.getPokemonByName(currentPoke.entry_number)
       .then((response) => {
         setSelectedPokemon(response);

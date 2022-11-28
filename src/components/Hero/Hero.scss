@@ -9,13 +9,14 @@
     align-items: center;
     background-color: $color-dark-text;
     justify-content: space-between;
-    padding: 0.4rem 0.4rem;
+    padding: 0.3rem 0.4rem;
+    margin-bottom: 0.6rem;
   }
 
   &__caught-wrapper {
     display: flex;
     align-items: center;
-    width: 10.2rem;
+    width: 8.4rem;
   }
 
   &__caught-button {
@@ -42,7 +43,7 @@
   }
 
   &__name {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: white;
     font-weight: 400;
     margin: 0;
@@ -54,8 +55,7 @@
   }
 
   &__gender-button {
-    padding: 0.8rem;
-    border-radius: 50%;
+    @include header-buttons;
     border: none;
     cursor: pointer;
 
@@ -72,21 +72,108 @@
     }
   }
 
-  &__gender {
-    width: 1.4rem;
-    filter: grayscale(1) invert(1);
+  &__gender-icon {
+    color: white;
+    font-size: 20px;
   }
 
   &__shiny-button {
-    padding: 0.8rem;
-    border-radius: 50%;
+    @include header-buttons;
     background-color: white;
     border: none;
     cursor: pointer;
+
+    &--active {
+      background-color: gold;
+    }
   }
 
   &__shiny {
-    width: 1.4rem;
+    width: 1rem;
     filter: opacity(0.2);
+
+    &--active {
+      filter: opacity(1);
+    }
   }
+
+  &__body-container {
+    background-color: rgba($color: #f1d8ed, $alpha: 0.75);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 2px solid rgba($color: #f1d8ed, $alpha: 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__image {
+    width: 40%;
+  }
+
+  &__button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__image-button {
+    border-radius: 50%;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  &__chevron {
+    color: rgb(148, 148, 148);
+  }
+
+  &__image-divider {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image-count {
+    padding: 0.3rem 1.6rem;
+    background-color: #f3e9f2;
+    color: $color-dark-text;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-left: 0.8rem;
+  }
+
+  &__switch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__switch-title {
+    font-size: 1.2rem;
+  }
+}
+
+.MuiSwitch-thumb {
+  background-color: red;
+  color: red;
+}
+
+.MuiSwitch-track {
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+label {
+  margin: 0;
 }

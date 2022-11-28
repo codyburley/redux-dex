@@ -8,7 +8,7 @@ import PokemonPage from './pages/Pokemon/Pokemon';
 import HomeButton from './components/HomeButton/HomeButton';
 
 const App = () => {
-  const { pokemon, isLoading } = useSelector(state => state.pokemonList)
+  const { isLoading } = useSelector(state => state.pokemonList)
   const dispatch = useDispatch()
 
   useEffect(() => {
