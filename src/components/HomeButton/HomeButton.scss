@@ -3,25 +3,37 @@
 @use '../../styles/partials/fonts' as *;
 
 .home-button {
-  background-color: #239b6a;
-  padding: 1rem;
+  position: fixed;
+  top: 93vh;
+  left: 50%;
+  margin: -2.2rem 0 0 -2.2rem;
+  z-index: 5;
   border-radius: 50%;
-  display: inline-block;
+  background-color: rgba($color: #ffd0f5, $alpha: 0.25);
+  // padding: 0.3rem;
+  height: 4.4rem;
+  width: 4.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__icon {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1rem;
+    height: 1rem;
     filter: grayscale(1) invert(1);
     object-fit: contain;
+    object-position: center;
   }
 
-  &__border {
-    position: fixed;
-    top: 93vh;
-    left: 50%;
-    z-index: 5;
+  &__link {
+    background-color: #239b6a;
+    // padding: 1rem;
     border-radius: 50%;
-    background-color: rgba($color: #ffd0f5, $alpha: 0.25);
-    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 3.4rem;
+    width: 4rem;
+    height: 4rem;
   }
 }

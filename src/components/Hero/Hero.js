@@ -13,6 +13,8 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
   const entryNumber = String(entry_number).padStart(3, 0);
   const [gender, setGender] = useState('male');
 
+  const homeSprites = sprites.other.home;
+
   const handleGenderClick = () => {
     if (gender === 'male') {
       setGender('female')
@@ -28,6 +30,8 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
       dispatch(caughtPoke({ entry_number }))
     }
   }
+
+  console.log(homeSprites)
 
   return (
     <section className='hero'>
@@ -68,6 +72,24 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
               alt="Shiny" />
           </button>
         </div>
+      </div>
+      <div className="hero__image-container">
+        <img
+          src={homeSprites.front_default}
+          alt={capitalName}
+          className="hero__image"
+        />
+      </div>
+      <div className='hero__image-wrapper'>
+        <div className='hero__image-divider'>
+          <button>
+          </button>
+          <span>1/2</span>
+        </div>
+
+        <button>
+
+        </button>
       </div>
     </section>
   )
