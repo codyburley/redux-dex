@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/Home/Home';
 import PokemonPage from './pages/Pokemon/Pokemon';
-import HomeButton from './components/HomeButton/HomeButton';
 
 const App = () => {
   const { isLoading } = useSelector(state => state.pokemonList)
@@ -29,7 +28,6 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/pokemon/:entry_number' element={<PokemonPage />} />
       </Routes>
-      <HomeButton />
     </div>
   );
 }

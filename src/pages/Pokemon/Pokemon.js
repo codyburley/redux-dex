@@ -7,6 +7,7 @@ import Hero from '../../components/Hero/Hero';
 import Description from '../../components/Description/Description';
 import Abilities from '../../components/Abilities/Abilities';
 import Pokedex from 'pokedex-promise-v2';
+import HomeButton from '../../components/HomeButton/HomeButton'
 
 const P = new Pokedex();
 
@@ -52,6 +53,7 @@ const Pokemon = () => {
       <Abilities
         abilityArray={selectedPokemon.abilities}
       />
+      <HomeButton />
     </main>
   )
 }
