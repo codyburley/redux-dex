@@ -1,3 +1,37 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/fonts' as *;
+
+.abilities {
+  &__title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba($color: $color-card-header, $alpha: 0.65);
+  }
+
+  &__title {
+    width: 70%;
+    @include font-description-subheader;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  &__wrapper {
+    width: 21.6rem;
+    text-align: center;
+    background-color: $color-description;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 4px $color-card-header;
+    font-size: 1.2rem;
+    color: $color-grey-text;
+    font-weight: 500;
+  }
+}

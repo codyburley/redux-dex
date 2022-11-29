@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.2rem;
+  margin: 1.2rem 0 2rem;
 
   &__type-container {
     display: flex;
@@ -117,27 +117,26 @@
     font-weight: 500;
   }
 
-  &__genus {
-    font-size: 1.2rem;
-    color: white;
-    font-weight: 400;
-    margin: 0;
+  &__wrapper {
+    box-shadow: 0 0 1px $color-card-header;
     width: 100%;
-    text-align: center;
-    background-color: $color-card-header;
-    padding: 0.4rem 0;
+  }
+
+  &__genus {
+    @include font-description-subheader;
+    width: 100%;
   }
 
   &__flavor-container {
     background-color: $color-description;
     width: 100%;
-    padding: 2rem 0.6rem;
+    padding: 2.8rem 0.6rem;
   }
 
   &__flavor-text {
     font-size: 1.2rem;
     margin: 0;
-    width: 70%;
+    width: 80%;
     font-weight: 500;
     color: $color-black-text;
   }
@@ -153,6 +152,7 @@
     border-radius: 20px;
     display: flex;
     align-items: center;
+    box-shadow: 0 0 4px $color-card-header;
   }
 
   &__measurement-icon {
@@ -167,5 +167,8 @@
     width: 6.5rem;
     text-align: center;
     margin: 0;
+    font-size: 1.2rem;
+    color: $color-grey-text;
+    font-weight: 500;
   }
 }

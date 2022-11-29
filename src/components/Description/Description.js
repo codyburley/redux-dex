@@ -9,7 +9,6 @@ const P = new Pokedex();
 
 const Description = ({ entry_number, types, height, weight }) => {
   const [description, setDescription] = useState()
-  // const capitalName = name.charAt(0).toUpperCase() + name.slice(1);
 
   useEffect(() => {
     P.getPokemonSpeciesByName(entry_number)
@@ -25,7 +24,6 @@ const Description = ({ entry_number, types, height, weight }) => {
     return <h1>Loading...</h1>
   }
 
-  console.log(description)
   return (
     <section className='description'>
       {types.map(type => {

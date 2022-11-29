@@ -35,6 +35,8 @@ const Pokemon = () => {
     return <h1>Loading...</h1>
   }
 
+  console.log(selectedPokemon)
+
   return (
     <main className='pokemon'>
       <Hero
@@ -49,7 +51,9 @@ const Pokemon = () => {
         weight={selectedPokemon.weight}
         height={selectedPokemon.height}
       />
-      <Abilities />
+      <Abilities
+        abilityArray={selectedPokemon.abilities}
+      />
     </main>
   )
 }

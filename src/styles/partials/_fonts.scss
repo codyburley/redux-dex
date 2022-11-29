@@ -18,3 +18,13 @@
   font-size: 1.4rem;
   color: $color-light-text;
 }
+
+@mixin font-description-subheader {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  background-color: $color-card-header;
+  padding: 0.4rem 0;
+}
