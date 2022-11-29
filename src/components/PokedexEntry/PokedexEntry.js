@@ -11,7 +11,6 @@ const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
   const entryNumber = String(entry_number).padStart(3, 0);
 
   const handleClick = () => {
-    console.log(entry_number);
     if (caught) {
       dispatch(uncaughtPoke({ entry_number }))
     } else {

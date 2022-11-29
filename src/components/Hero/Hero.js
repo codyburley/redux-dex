@@ -37,10 +37,18 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
       setCurrentSprite(sprites.other.home.front_shiny)
     }
     if (gen === 'home' && gender === 'female' && shiny === false) {
-      setCurrentSprite(sprites.other.home.front_female)
+      if (sprites.other.home.front_female === null) {
+        setCurrentSprite(sprites.other.home.front_default)
+      } else {
+        setCurrentSprite(sprites.other.home.front_female)
+      }
     }
     if (gen === 'home' && gender === 'female' && shiny === true) {
-      setCurrentSprite(sprites.other.home.front_shiny)
+      if (sprites.other.home.front_female === null) {
+        setCurrentSprite(sprites.other.home.front_shiny)
+      } else {
+        setCurrentSprite(sprites.other.home.front_shiny_female)
+      }
     }
     if (gen === 'classic' && gender === 'male' && shiny === false && back === false) {
       setCurrentSprite(sprites.front_default)
@@ -55,18 +63,34 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
       setCurrentSprite(sprites.back_shiny)
     }
     if (gen === 'classic' && gender === 'female' && shiny === false && back === false) {
-      setCurrentSprite(sprites.front_female)
+      if (sprites.front_female === null) {
+        setCurrentSprite(sprites.front_default)
+      } else {
+        setCurrentSprite(sprites.front_female)
+      }
     }
     if (gen === 'classic' && gender === 'female' && shiny === true && back === false) {
-      setCurrentSprite(sprites.front_shiny_female)
+      if (sprites.front_female === null) {
+        setCurrentSprite(sprites.front_shiny)
+      } else {
+        setCurrentSprite(sprites.front_shiny_female)
+      }
     }
     if (gen === 'classic' && gender === 'female' && shiny === false && back === true) {
-      setCurrentSprite(sprites.back_female)
+      if (sprites.front_female === null) {
+        setCurrentSprite(sprites.back_default)
+      } else {
+        setCurrentSprite(sprites.back_female)
+      }
     }
     if (gen === 'classic' && gender === 'female' && shiny === true && back === true) {
-      setCurrentSprite(sprites.back_shiny_female)
+      if (sprites.front_female === null) {
+        setCurrentSprite(sprites.back_shiny)
+      } else {
+        setCurrentSprite(sprites.back_shiny_female)
+      }
     }
-  }, [currentSprite, gender, shiny, gen, back])
+  }, [currentSprite, gender, shiny, gen, back, sprites])
 
   const handleClick = () => {
     if (caught) {
