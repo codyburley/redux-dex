@@ -24,6 +24,8 @@ const Description = ({ entry_number, types, height, weight }) => {
     return <h1>Loading...</h1>
   }
 
+  console.log(description)
+
   return (
     <section className='description'>
       {types.map(type => {
@@ -37,7 +39,7 @@ const Description = ({ entry_number, types, height, weight }) => {
       <article className="description__wrapper">
         <h2 className='description__genus'>{description.genera[7].genus}</h2>
         <div className="description__flavor-container">
-          <p className='description__flavor-text'>{description.flavor_text_entries[0].flavor_text.replace(/\W/g, ' ')}</p>
+          <p className='description__flavor-text'>{description.flavor_text_entries[0].flavor_text.replace(/[^a-z0-9 é]/gi, ' ')}</p>
         </div>
       </article>
       <div className="description__measurement-container">

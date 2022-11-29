@@ -2,7 +2,6 @@ import React from 'react';
 import './Abilities.scss';
 
 const Abilities = ({ abilityArray }) => {
-  console.log(abilityArray)
   return (
     <section className='abilities'>
       <div className="abilities__title-container">
