@@ -35,6 +35,8 @@ const Pokemon = () => {
     return <h1>Loading...</h1>
   }
 
+  console.log(selectedPokemon)
+
   return (
     <main className='pokemon'>
       <Hero
@@ -43,7 +45,12 @@ const Pokemon = () => {
         caught={selectedPokemon.caught}
         entry_number={selectedPokemon.entry_number}
       />
-      <Description />
+      <Description
+        entry_number={selectedPokemon.entry_number}
+        types={selectedPokemon.types}
+        weight={selectedPokemon.weight}
+        height={selectedPokemon.height}
+      />
       <Abilities />
     </main>
   )
