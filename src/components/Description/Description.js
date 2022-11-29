@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Description.scss';
 import Pokedex from 'pokedex-promise-v2';
-import { TypeHelper } from '../TypeHelper/TypeHelper';
+import Type from '../TypeHelper/TypeHelper';
+import StraightenIcon from '@mui/icons-material/Straighten';
+import ScaleIcon from '@mui/icons-material/Scale';
 
 const P = new Pokedex();
 
@@ -17,38 +19,38 @@ const Description = ({ entry_number, types, height, weight }) => {
       .catch((error) => {
         console.log('There was an ERROR: ', error);
       });
-  }, [])
-
-  const typeFunction = (name) => {
-
-    const func = () => window[name];
-    console.log(func)
-    if (typeof func !== 'function') {
-      console.log('oof')
-      return;
-    }
-    func.apply(window);
-  }
+  }, [entry_number])
 
   if (!description) {
     return <h1>Loading...</h1>
   }
 
+  console.log(description)
   return (
     <section className='description'>
-      <div className="description__type-container">
-        <span className="description__type-icon"></span>
-        {types.map(type => {
-          return (
-            <>
-              <div className='description__type-icon'>
-                {TypeHelper(type.type.name)}
-
-              </div>
-              <span className="description__type">{type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}</span>
-            </>
-          )
-        })}
+      {types.map(type => {
+        return (
+          <div key={type.type.name} className={`description__type-container description__type-container--${type.type.name}`}>
+            <Type type={type.type.name} />
+            <span className="description__type">{type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}</span>
+          </div>
+        )
+      })}
+      <article className="description__wrapper">
+        <h2 className='description__genus'>{description.genera[7].genus}</h2>
+        <div className="description__flavor-container">
+          <p className='description__flavor-text'>{description.flavor_text_entries[0].flavor_text.replace(/\W/g, ' ')}</p>
+        </div>
+      </article>
+      <div className="description__measurement-container">
+        <div className='description__measurement'>
+          <StraightenIcon className='description__measurement-icon description__measurement-icon--height' />
+          <p className='description__measurement-text'>{height / 10}m</p>
+        </div>
+        <div className='description__measurement'>
+          <ScaleIcon className='description__measurement-icon' />
+          <p className='description__measurement-text'>{(weight / 10).toFixed(1)}kg</p>
+        </div>
       </div>
     </section>
   )

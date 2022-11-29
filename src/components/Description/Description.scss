@@ -3,8 +3,169 @@
 @use '../../styles/partials/fonts' as *;
 
 .description {
-  &__type-icon {
-    width: 20px;
-    height: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+
+  &__type-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: white;
+    width: 10rem;
+
+    &--bug {
+      background: #92BC2C;
+      box-shadow: 0 0 10px #92BC2C;
+    }
+
+    &--dark {
+      background: #595761;
+      box-shadow: 0 0 10px #595761;
+    }
+
+    &--dragon {
+      background: #0C69C8;
+      box-shadow: 0 0 10px #0C69C8;
+    }
+
+    &--electric {
+      background: #F2D94E;
+      box-shadow: 0 0 10px #F2D94E;
+    }
+
+    &--fire {
+      background: #FBA54C;
+      box-shadow: 0 0 10px #FBA54C;
+    }
+
+    &--fairy {
+      background: #EE90E6;
+      box-shadow: 0 0 10px #EE90E6;
+    }
+
+    &--fighting {
+      background: #D3425F;
+      box-shadow: 0 0 10px #D3425F;
+    }
+
+    &--flying {
+      background: #A1BBEC;
+      box-shadow: 0 0 10px #A1BBEC;
+    }
+
+    &--ghost {
+      background: #5F6DBC;
+      box-shadow: 0 0 10px #5F6DBC;
+    }
+
+    &--grass {
+      background: #5FBD58;
+      box-shadow: 0 0 10px #5FBD58;
+    }
+
+    &--ground {
+      background: #DA7C4D;
+      box-shadow: 0 0 10px #DA7C4D;
+    }
+
+    &--ice {
+      background: #75D0C1;
+      box-shadow: 0 0 10px #75D0C1;
+    }
+
+    &--normal {
+      background: #A0A29F;
+      box-shadow: 0 0 10px #A0A29F;
+    }
+
+    &--poison {
+      background: #B763CF;
+      box-shadow: 0 0 10px #B763CF;
+    }
+
+    &--psychic {
+      background: #FA8581;
+      box-shadow: 0 0 10px #FA8581;
+    }
+
+    &--rock {
+      background: #C9BB8A;
+      box-shadow: 0 0 10px #C9BB8A;
+    }
+
+    &--steel {
+      background: #5695A3;
+      box-shadow: 0 0 10px #5695A3;
+    }
+
+    &--water {
+      background: #539DDF;
+      box-shadow: 0 0 10px #539DDF;
+    }
+  }
+
+  &__type-image {
+    width: 14px;
+  }
+
+  &__type {
+    margin-left: 1rem;
+    font-weight: 500;
+  }
+
+  &__genus {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: $color-card-header;
+    padding: 0.4rem 0;
+  }
+
+  &__flavor-container {
+    background-color: $color-description;
+    width: 100%;
+    padding: 2rem 0.6rem;
+  }
+
+  &__flavor-text {
+    font-size: 1.2rem;
+    margin: 0;
+    width: 70%;
+    font-weight: 500;
+    color: $color-black-text;
+  }
+
+  &__measurement-container {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  &__measurement {
+    background-color: $color-description;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__measurement-icon {
+    color: $color-dark-text;
+
+    &--height {
+      transform: rotate(-70deg);
+    }
+  }
+
+  &__measurement-text {
+    width: 6.5rem;
+    text-align: center;
+    margin: 0;
   }
 }
