@@ -1,18 +1,18 @@
-import React from 'react'
-import './Pokedex.scss'
-import { useSelector } from 'react-redux'
-import PokedexEntry from '../PokedexEntry/PokedexEntry';
+import React from "react";
+import "./Pokedex.scss";
+import { useSelector } from "react-redux";
+import PokedexEntry from "../PokedexEntry/PokedexEntry";
 
 const Pokedex = () => {
-  const { pokemon } = useSelector(state => state.pokemonList)
+  const { pokemon } = useSelector((state) => state.pokemonList);
 
   return (
-    <section className='pokedex'>
+    <section className="pokedex">
       {pokemon.map((poke, i) => {
-        return <PokedexEntry key={i} {...poke} />
+        return <PokedexEntry key={i} {...poke} />;
       })}
     </section>
-  )
-}
+  );
+};
 
-export default Pokedex
+export default Pokedex;
