@@ -14,19 +14,20 @@ const P = new Pokedex();
 const Pokemon = () => {
   const pokeEntryNumber = useParams();
   const [selectedPokemon, setSelectedPokemon] = useState();
+  const [caught, setCaught] = useState();
   const pokemon = useSelector((state) => state.pokemonList.pokemon);
 
   useEffect(() => {
-    const currentPoke = pokemon.find(
-      (poke) => poke.entry_number === Number(pokeEntryNumber.entry_number)
+    const isCaught = pokemon.find(
+      (p) => p === Number(pokeEntryNumber.entry_number)
     );
-    P.getPokemonByName(currentPoke.entry_number)
+    isCaught ? setCaught(true) : setCaught(false);
+    P.getPokemonByName(pokeEntryNumber.entry_number)
       .then((response) => {
         setSelectedPokemon(response);
         setSelectedPokemon((state) => ({
           ...state,
-          caught: currentPoke.caught,
-          entry_number: currentPoke.entry_number,
+          entry_number: pokeEntryNumber.entry_number,
         }));
       })
       .catch((error) => {
@@ -43,7 +44,7 @@ const Pokemon = () => {
       <Hero
         sprites={selectedPokemon.sprites}
         name={selectedPokemon.name}
-        caught={selectedPokemon.caught}
+        caught={caught}
         entry_number={selectedPokemon.entry_number}
       />
       <Description

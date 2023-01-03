@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PokedexEntry.scss";
 import pokeballBackground from "../../assets/images/pokeball-background.png";
 import caughtIcon from "../../assets/images/pokeball.png";
-import {
-  caughtPoke,
-  uncaughtPoke,
-} from "../../features/pokemonList/pokemonListSlice";
+import { toggleCaught } from "../../features/pokemonList/pokemonListSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
+const PokedexEntry = ({ name, index }) => {
+  const pokemon = useSelector((state) => state.pokemonList.pokemon);
   const dispatch = useDispatch();
-  const entryNumber = String(entry_number).padStart(3, 0);
+  const entryNumber = index + 1;
+  const [caught, setCaught] = useState();
+
+  useEffect(() => {
+    const isCaught = pokemon.find((p) => p === entryNumber);
+    isCaught ? setCaught(true) : setCaught(false);
+  }, [pokemon, entryNumber]);
 
   const handleClick = () => {
-    if (caught) {
-      dispatch(uncaughtPoke({ entry_number }));
-    } else {
-      dispatch(caughtPoke({ entry_number }));
-    }
+    dispatch(toggleCaught({ entryNumber }));
   };
 
   return (
@@ -34,7 +35,7 @@ const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
         No.
         {entryNumber}
       </div>
-      <Link to={`/pokemon/${entry_number}`}>
+      <Link to={`/pokemon/${entryNumber}`}>
         <div className="entry__image-container">
           <img
             className="entry__image-background"
@@ -43,8 +44,8 @@ const PokedexEntry = ({ entry_number, pokemon_species, caught }) => {
           />
           <img
             className="entry__image"
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${entry_number}.png`}
-            alt={pokemon_species.name}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${entryNumber}.png`}
+            alt={name}
           />
         </div>
       </Link>

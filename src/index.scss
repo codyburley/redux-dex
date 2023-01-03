@@ -1,5 +1,5 @@
-@use './styles/partials/variables' as *;
-@use './styles/partials/fonts' as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/fonts" as *;
 
 *,
 *::before,
@@ -10,12 +10,13 @@
 html {
   font-size: 10px;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: $color-background;
-  height: 110%;
+  // height: 110%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;

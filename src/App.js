@@ -7,14 +7,7 @@ import HomePage from "./pages/Home/Home";
 import PokemonPage from "./pages/Pokemon/Pokemon";
 
 const App = () => {
-  const { isLoading } = useSelector((state) => state.pokemonList);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPokemonList());
-  }, []);
-
-  if (isLoading) {
+  if (1 > 2) {
     return (
       <div className="loading">
         <h1>Loading...</h1>

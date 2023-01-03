@@ -1,8 +1,5 @@
 import { useDispatch } from "react-redux";
-import {
-  caughtPoke,
-  uncaughtPoke,
-} from "../../features/pokemonList/pokemonListSlice";
+import { toggleCaught } from "../../features/pokemonList/pokemonListSlice";
 import caughtIcon from "../../assets/images/pokeball.png";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
@@ -136,11 +133,8 @@ const Hero = ({ sprites, name, caught, entry_number }) => {
   }, [currentSprite, gender, shiny, gen, back, sprites]);
 
   const handleClick = () => {
-    if (caught) {
-      dispatch(uncaughtPoke({ entry_number }));
-    } else {
-      dispatch(caughtPoke({ entry_number }));
-    }
+    const entryNumber = Number(entry_number);
+    dispatch(toggleCaught({ entryNumber }));
   };
 
   return (
