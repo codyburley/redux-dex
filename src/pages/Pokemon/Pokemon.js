@@ -15,7 +15,7 @@ const Pokemon = () => {
   const pokeEntryNumber = useParams();
   const [selectedPokemon, setSelectedPokemon] = useState();
   const [caught, setCaught] = useState();
-  const pokemon = useSelector((state) => state.pokemonList.pokemon);
+  const pokemon = useSelector((state) => state.pokemonList.pokemonCaught);
 
   useEffect(() => {
     const isCaught = pokemon.find(

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  pokemon: [],
+  pokemonCaught: [],
 };
 
 const pokemonListSlice = createSlice({
@@ -9,16 +9,16 @@ const pokemonListSlice = createSlice({
   initialState,
   reducers: {
     toggleCaught: (state, { payload }) => {
-      const pokemonCaught = state.pokemon.find(
+      const pokemonCaught = state.pokemonCaught.find(
         (poke) => poke === payload.entryNumber
       );
       if (pokemonCaught) {
-        const index = state.pokemon.indexOf(pokemonCaught);
+        const index = state.pokemonCaught.indexOf(pokemonCaught);
         if (index > -1) {
-          state.pokemon.splice(index, 1);
+          state.pokemonCaught.splice(index, 1);
         }
       } else {
-        state.pokemon.push(payload.entryNumber);
+        state.pokemonCaught.push(payload.entryNumber);
       }
     },
   },

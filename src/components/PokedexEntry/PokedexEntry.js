@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const PokedexEntry = ({ name, index }) => {
-  const pokemon = useSelector((state) => state.pokemonList.pokemon);
+  const pokemon = useSelector((state) => state.pokemonList.pokemonCaught);
   const dispatch = useDispatch();
   const entryNumber = index + 1;
   const [caught, setCaught] = useState();
