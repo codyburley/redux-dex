@@ -3,11 +3,11 @@ import Pokedex from "../../components/Pokedex/Pokedex";
 import Header from "../../components/Header/Header";
 import "./Home.scss";
 
-const Home = () => {
+const Home = ({ pokemon }) => {
   return (
     <main className="home">
       <Header />
-      <Pokedex />
+      <Pokedex pokemon={pokemon} />
     </main>
   );
 };
