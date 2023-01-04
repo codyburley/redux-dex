@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Pokedex.scss";
 import PokedexEntry from "../PokedexEntry/PokedexEntry";
 
+
 const Pokedex = ({ pokemon }) => {
   return (
     <section className="pokedex">
