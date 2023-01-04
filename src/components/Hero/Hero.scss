@@ -1,9 +1,8 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/fonts' as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
 
 .hero {
-
   &__title-container {
     display: flex;
     align-items: center;
@@ -150,7 +149,7 @@
     background-color: #f3e9f2;
     color: $color-dark-text;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-left: 0.8rem;
   }
 

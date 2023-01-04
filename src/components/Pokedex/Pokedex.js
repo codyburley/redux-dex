@@ -24,7 +24,8 @@ const Pokedex = () => {
     }
     const onScroll = () => {
       const scrolledToBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight;
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - window.outerHeight / 3;
       console.log(data.results.length);
       if (
         data.results.length >= 140 &&

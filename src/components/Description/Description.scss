@@ -10,6 +10,7 @@
   margin: 1.2rem 0 2rem;
 
   &__type-container {
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
@@ -134,7 +135,7 @@
   }
 
   &__flavor-text {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0;
     width: 80%;
     font-weight: 500;
@@ -167,7 +168,7 @@
     width: 6.5rem;
     text-align: center;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: $color-grey-text;
     font-weight: 500;
   }
