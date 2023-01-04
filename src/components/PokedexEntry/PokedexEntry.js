@@ -11,6 +11,7 @@ const PokedexEntry = ({ name, index }) => {
   const pokemon = useSelector((state) => state.pokemonList.pokemonCaught);
   const dispatch = useDispatch();
   const entryNumber = index + 1;
+  const entryNumberTitle = String(entryNumber).padStart(3, 0);
   const [caught, setCaught] = useState();
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const PokedexEntry = ({ name, index }) => {
           />
         </button>
         No.
-        {entryNumber}
+        {entryNumberTitle}
       </div>
       <Link to={`/pokemon/${entryNumber}`}>
         <div className="entry__image-container">
