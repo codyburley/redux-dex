@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { pageSize } from "../App";
 
 // Define a service using a base URL and expected endpoints
 export const pokemonApi = createApi({
@@ -9,7 +10,8 @@ export const pokemonApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/" }),
   endpoints: (builder) => ({
     getPokemonByName: builder.query({
-      query: ({ page, limit }) => `pokemon?offset=${page * 20}&limit=${limit}`,
+      query: ({ page, limit }) =>
+        `pokemon?offset=${page * pageSize}&limit=${limit}`,
       // Only have one cache entry because the arg always maps to one string
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
