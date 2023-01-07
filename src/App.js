@@ -5,10 +5,10 @@ import HomePage from "./pages/Home/Home";
 import PokemonPage from "./pages/Pokemon/Pokemon";
 import { useGetPokemonByNameQuery } from "./services/pokemonApi";
 
-// The API will provide entries past 151, maxPoke is to set the max number
-// to 151 (the Kanto Pokedex), threshold is to change from a limit of 20
-// entries per fetch to 11 which will hit the max 151
+// The API will provide entries past 151, maxPoke is to control the max number
+// of entries (the Kanto Pokedex being 151 entries)
 const maxPoke = 151;
+// Number of entries per page
 export const pageSize = 20;
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
   useEffect(() => {
     const fetchMorePokemon = () => {
       if (pokemon.length < maxPoke) {
+        // Calculation to pull remaining 11 Pokemon to hit 151 exactly
         if (pokemon.length + pageSize > maxPoke) {
           setLimit(maxPoke - pokemon.length);
         }
